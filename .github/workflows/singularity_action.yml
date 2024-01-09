@@ -14,7 +14,7 @@ jobs:
         fail-fast: false
         matrix:
           folder:
-            - nwchem-dev.ompi41x
+            - nwchem-mmoptim.ompi41x
 #            - nwchem-701.mpich321.ivybridge
     steps:
     - name: Checkout nwchem-singularity source
@@ -104,6 +104,6 @@ jobs:
         export LD_LIBRARY_PATH=/opt/ompi/lib:$LD_LIBRARY_PATH
         which mpirun
         ldd `which mpirun`
-        export NWCHEM_EXECUTABLE="singularity exec oras://ghcr.io/edoapra/nwchem-singularity/nwchem-dev.ompi41x:latest nwchem"
+        export NWCHEM_EXECUTABLE="singularity exec oras://ghcr.io/dmejiar/nwchem-singularity/nwchem-mmoptim.ompi41x:latest nwchem"
         ./runtests.mpi.unix procs 2 dft_he2+
         ./runtests.mpi.unix procs 2 h2o_opt

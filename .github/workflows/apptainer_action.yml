@@ -14,7 +14,7 @@ jobs:
         fail-fast: false
         matrix:
           folder:
-            - nwchem-dev.ompi41x
+            - nwchem-mmoptim.ompi41x
     steps:
     - name: Checkout nwchem-singularity source
       uses: actions/checkout@v4
@@ -96,7 +96,7 @@ jobs:
         rsync -a ~/cache/ompi /opt/.
         which mpirun
         ldd `which mpirun`
-        export NWCHEM_EXECUTABLE="apptainer exec oras://ghcr.io/edoapra/nwchem-singularity/nwchem-dev.ompi41x:latest nwchem"
+        export NWCHEM_EXECUTABLE="apptainer exec oras://ghcr.io/dmejiar/nwchem-singularity/nwchem-mmoptim.ompi41x:latest nwchem"
         ./runtests.mpi.unix procs 2 dft_he2+
         ./runtests.mpi.unix procs 2 h2o_opt
     - name: Install Singularity CR
@@ -119,6 +119,6 @@ jobs:
         export PATH=/opt/ompi/bin:$PATH
         export MPIRUN_NPOPT="-x UCX_POSIX_USE_PROC_LINK=n -x UCX_TLS=tcp,self -n"
         export LD_LIBRARY_PATH=/opt/ompi/lib:$LD_LIBRARY_PATH
-        export NWCHEM_EXECUTABLE="singularity exec oras://ghcr.io/edoapra/nwchem-singularity/nwchem-dev.ompi41x:latest nwchem"
+        export NWCHEM_EXECUTABLE="singularity exec oras://ghcr.io/dmejiar/nwchem-singularity/nwchem-mmoptim.ompi41x:latest nwchem"
         ./runtests.mpi.unix procs 2 dft_he2+
         ./runtests.mpi.unix procs 2 h2o_opt
