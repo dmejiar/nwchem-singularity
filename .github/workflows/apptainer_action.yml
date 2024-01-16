@@ -50,7 +50,8 @@ jobs:
     - name: Checkout nwchem source
       uses: actions/checkout@v4
       with:
-        repository: nwchemgit/nwchem
+        repository: dmejiar/nwchem
+        ref: mmoptim
         clean: false
         path: nwchem
     - name: build a apptainer container
