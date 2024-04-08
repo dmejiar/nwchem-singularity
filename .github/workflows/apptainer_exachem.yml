@@ -106,7 +106,7 @@ jobs:
     - name: Checkout exachem source
       uses: actions/checkout@v4
       with:
-        repository: Exachem/exachem
+        repository: dmejiar/exachem-dev
         ref: ${{ matrix.branch}}
         clean: false
         fetch-depth: 0
