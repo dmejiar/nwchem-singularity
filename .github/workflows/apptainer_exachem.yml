@@ -19,7 +19,7 @@ jobs:
           branch:
             - main
           myusername:
-            - edoapra
+            - dmejiar
           cxx:
             - g++
           armci_network:
@@ -52,7 +52,7 @@ jobs:
     - name: Checkout nwchem-singularity source
       uses: actions/checkout@v4
       with:
-        repository: edoapra/nwchem-singularity
+        repository: dmejiar/nwchem-singularity
         clean: false
     - name: pkg cleanup
       run: |
