@@ -107,6 +107,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: dmejiar/exachem-dev
+        token: ${{ secrets.GITHUB_TOKEN }}
         ref: ${{ matrix.branch}}
         clean: false
         fetch-depth: 0
