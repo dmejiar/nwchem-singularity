@@ -60,7 +60,7 @@ export DEBIAN_FRONTEND=noninteractive \
 else
     export mpich_options=' '
 fi \
-&& export GCC_VERSION=11 \
+&& export GCC_VERSION=12 \
 && echo mpich_options $mpich_options \
 && echo ARMCI_NETWORK is $ARMCI_NETWORK\
 && echo MPI_IMPL is $MPI_IMPL\
@@ -260,8 +260,8 @@ rm -rf ~/apps  /var/intel  l_*sh ; fi"   \
 && echo "dddddddddddd" \
 &&  du -sk /tmp/* || true \
 &&  ls -lart /tmp ||true \
-&&  apt-get  -y purge cmake git  gcc-"$GCC_VERSION"  g++-"$GCC_VERSION"  gfortran-"$GCC_VERSION"  libstdc++-"$GCC_VERSION"-dev  libgcc-"$GCC_VERSION"-dev git \
-&& apt-get -y install libgcc-s1 libgfortran5 libatomic1 \
+&&  apt-get  -y purge cmake git  gcc-"$GCC_VERSION"  g++-"$GCC_VERSION"  gfortran-"$GCC_VERSION"  libstdc++-"$GCC_VERSION"-dev  libgcc-"$GCC_VERSION"-dev \
+&& apt-get -y install libgcc-s1 libgfortran5 libquadmath0 libatomic1 \
 && apt-get -y autoremove && apt-get clean
 
 
